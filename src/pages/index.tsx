@@ -1,10 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import React, { ReactNode } from 'react';
+import { Link } from 'gatsby';
+import Layout from '../components/layout';
+import Image from '../components/image';
+import SEO from '../components/seo';
 
-const IndexPage = () => (
+const IndexPage = (): ReactNode => (
   <Layout>
     <SEO title="Home" />
     <div className="home">
@@ -14,7 +14,7 @@ const IndexPage = () => (
         <div
           style={{
             maxWidth: `300px`,
-            margin: "0 auto 1.45rem",
+            margin: '0 auto 1.45rem',
           }}
         >
           <Image />
@@ -23,5 +23,5 @@ const IndexPage = () => (
       <Link to="/blogposts/">View all posts</Link>
     </div>
   </Layout>
-)
-export default IndexPage
+);
+export default IndexPage;

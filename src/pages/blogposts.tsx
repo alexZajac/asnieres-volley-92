@@ -1,9 +1,15 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-const BlogPosts = ({ data }) => {
-  const blogPosts = data.allContentfulBlogPost.edges
+import React, { ReactNode } from 'react';
+import { Link, graphql } from 'gatsby';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { BlogPostsPageQuery } from '../../graphql-types';
+
+interface BlogPostProps {
+  data: BlogPostsPageQuery;
+}
+
+const BlogPosts = ({ data }: BlogPostProps): ReactNode => {
+  const blogPosts = data.allContentfulBlogPost.edges;
   return (
     <Layout>
       <SEO title="Blog posts" />
@@ -18,11 +24,11 @@ const BlogPosts = ({ data }) => {
         <Link to="/">Go back to the homepage</Link>
       </div>
     </Layout>
-  )
-}
-export default BlogPosts
+  );
+};
+export default BlogPosts;
 export const query = graphql`
-  query BlogPostsPageQuery {
+  query BlogPostsPage {
     allContentfulBlogPost(limit: 1000) {
       edges {
         node {
@@ -41,4 +47,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
