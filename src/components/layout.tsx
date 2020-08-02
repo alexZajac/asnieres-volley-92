@@ -10,15 +10,16 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
-import './layout.css';
+// import './layout.css';
+import { SiteTitleQuery } from '../../graphql-types';
 
 interface LayoutProps {
   children?: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps): ReactElement => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+  const data: SiteTitleQuery = useStaticQuery(graphql`
+    query SiteTitle {
       site {
         siteMetadata {
           title

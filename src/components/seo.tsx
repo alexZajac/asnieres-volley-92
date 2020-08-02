@@ -9,6 +9,7 @@ import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { SeoQuery } from '../../graphql-types';
 
 interface SEOProps {
   description?: string;
@@ -18,9 +19,9 @@ interface SEOProps {
 }
 
 function SEO({ description, lang, meta, title }: SEOProps): ReactElement {
-  const { site } = useStaticQuery(
+  const { site }: SeoQuery = useStaticQuery(
     graphql`
-      query {
+      query Seo {
         site {
           siteMetadata {
             title

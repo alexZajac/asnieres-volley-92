@@ -1,4 +1,6 @@
-export default {
+import { createGlobalStyle } from 'styled-components';
+
+export const theme = {
   fonts: {
     main: 'Viga',
     secondary: 'Ruda',
@@ -25,3 +27,22 @@ export default {
     xxLarge: '6rem',
   },
 };
+
+export type ThemeType = typeof theme;
+
+export interface ThemeProps {
+  theme: ThemeType;
+}
+export const GlobalStyles = createGlobalStyle<ThemeProps>`
+  * {
+    box-shadow: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body, html {
+    font-family: ${props => props.theme.fonts.main};
+    height: 100%;
+    background-color: ${props => props.theme.colors.light};
+  }
+`;
