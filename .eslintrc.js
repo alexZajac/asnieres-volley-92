@@ -25,5 +25,6 @@ module.exports = {
     ],
     'react/prop-types': [0],
     'import/prefer-default-export': [0],
+    'react/jsx-props-no-spreading': [0],
   },
 };
