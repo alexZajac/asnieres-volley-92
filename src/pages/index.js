@@ -1,11 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
-import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/seo';
+import { Image, SEO, Container } from '../components';
 
-const IndexPage = (): ReactNode => (
-  <Layout>
+const IndexPage = () => (
+  <Container>
     <SEO title="Home" />
     <div className="home">
       <h1>Hello There</h1>
@@ -22,6 +20,6 @@ const IndexPage = (): ReactNode => (
       </div>
       <Link to="/blogposts/">View all posts</Link>
     </div>
-  </Layout>
+  </Container>
 );
 export default IndexPage;

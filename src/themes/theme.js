@@ -28,12 +28,7 @@ export const theme = {
   },
 };
 
-export type ThemeType = typeof theme;
-
-export interface ThemeProps {
-  theme: ThemeType;
-}
-export const GlobalStyles = createGlobalStyle<ThemeProps>`
+export const GlobalStyles = createGlobalStyle`
   * {
     box-shadow: border-box;
     margin: 0;

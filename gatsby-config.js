@@ -41,16 +41,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        codegenConfig: {
-          hooks: {
-            afterGenerate: `prettier --write`,
-          },
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [

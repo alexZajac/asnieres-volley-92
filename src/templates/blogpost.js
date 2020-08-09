@@ -1,17 +1,11 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { BlogPageQuery } from '../../graphql-types';
+import { SEO } from '../components';
 
-interface BlogPostProps {
-  data: BlogPageQuery;
-}
-
-const BlogPost = ({ data }: BlogPostProps): ReactNode => {
+const BlogPost = ({ data }) => {
   const { title, body, image } = data.contentfulBlogPost;
   return (
-    <Layout>
+    <div>
       <SEO title={title} />
       <div className="blogpost">
         <h1>{title}</h1>
@@ -20,7 +14,7 @@ const BlogPost = ({ data }: BlogPostProps): ReactNode => {
         <Link to="/blogposts">View more posts</Link>
         <Link to="/">Back to Home</Link>
       </div>
-    </Layout>
+    </div>
   );
 };
 export default BlogPost;

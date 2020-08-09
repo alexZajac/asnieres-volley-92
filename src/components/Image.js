@@ -1,7 +1,6 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { ImageQuery } from '../../graphql-types';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -14,8 +13,8 @@ import { ImageQuery } from '../../graphql-types';
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Image = (): ReactElement => {
-  const data: ImageQuery = useStaticQuery(graphql`
+export const Image = () => {
+  const data = useStaticQuery(graphql`
     query Image {
       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
         childImageSharp {
