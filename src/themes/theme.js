@@ -40,4 +40,17 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     background-color: ${props => props.theme.colors.light};
   }
+
+  body::-webkit-scrollbar {
+    width: ${props => props.theme.spacings.small};
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: ${props => props.theme.colors.primary};
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.colors.secondary};
+    border-radius:  ${props => props.theme.spacings.small};
+  }
 `;

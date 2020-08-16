@@ -1,7 +1,9 @@
 import React from 'react';
+import { NavContainer } from '../../components';
 
-const InfosPratiques = () => {
-  return <div>InfosPratiques</div>;
+const InfosPratiques = ({ ...props }) => {
+  const { location } = props;
+  return <NavContainer location={location}>InfosPratiques</NavContainer>;
 };
 
 export default InfosPratiques;

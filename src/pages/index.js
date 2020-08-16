@@ -3,17 +3,9 @@ import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { ChevronsDown } from 'react-feather';
-import { SEO, Video, Nav } from '../components';
+import { SEO, Video, NavContainer } from '../components';
 import { sections } from '../shared/Constants';
-
-const AbsoluteBackground = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: ${props => props.zIndex};
-`;
+import { AbsoluteContainer } from '../elements';
 
 const Shade = styled.div`
   width: 100%;
@@ -70,11 +62,11 @@ const SectionTitle = styled.span`
   }
 `;
 
-const StyledLink = styled(props => <Link {...props} />)`
+const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const StyledImg = styled(props => <Img {...props} />)`
+const StyledImg = styled(Img)`
   margin: ${props => props.theme.spacings.xxLarge};
   filter: drop-shadow(10px 10px 100px #000);
 `;
@@ -124,19 +116,20 @@ const CursorBox = styled.div`
 `;
 
 const scrollToPage = () =>
+  window &&
   window.scroll({ top: window.innerHeight, left: 0, behavior: 'smooth' });
 
 const IndexPage = ({ data, ...props }) => {
-  console.log(props);
+  const { location } = props;
   const {
     markdownRemark,
     file: {
-      childImageSharp: { mainfixed, smallFixed },
+      childImageSharp: { fixed },
     },
   } = data;
   const { frontmatter: pageData } = markdownRemark;
   const VideoBackground = () => (
-    <AbsoluteBackground zIndex={0}>
+    <AbsoluteContainer zIndex={0}>
       <Video
         videoSrcURL={pageData.videoSrcURL}
         videoTitle={pageData.videoTitle}
@@ -144,16 +137,16 @@ const IndexPage = ({ data, ...props }) => {
         height="100%"
         replacementImageURL={pageData.replacementImageURL}
       />
-      <AbsoluteBackground zIndex={1}>
+      <AbsoluteContainer zIndex={1}>
         <Shade
           height="35%"
           background="linear-gradient(180deg, rgba(0, 0, 0, 0.8) 10.1%, rgba(0, 0, 0, 0) 100%)"
         />
-      </AbsoluteBackground>
-    </AbsoluteBackground>
+      </AbsoluteContainer>
+    </AbsoluteContainer>
   );
   const Splashscreen = () => (
-    <FlexContainer width="100vw" height="100vh">
+    <FlexContainer style={{ zIndex: '2' }} width="100vw" height="100vh">
       <VideoBackground />
       <FlexContainer zIndex={2} height="100%" width="100%">
         <BlockRow flex="1 1 auto" />
@@ -165,7 +158,7 @@ const IndexPage = ({ data, ...props }) => {
               </StyledLink>
             ))}
           </Header>
-          <StyledImg fixed={mainfixed} />
+          <StyledImg fixed={fixed} />
           <ContentRow>
             <PageTitle>{pageData.title}</PageTitle>
             <Button onClick={scrollToPage}>Allez sur le site</Button>
@@ -183,9 +176,9 @@ const IndexPage = ({ data, ...props }) => {
       <SEO title="Home" />
       <Splashscreen />
       <FlexContainer width="100vw" height="100vh">
-        <BlockRow flex="1 1 auto" flexDirection="row">
-          <Nav fixedImage={smallFixed} />
-        </BlockRow>
+        <NavContainer location={location}>
+          <p>Hello</p>
+        </NavContainer>
       </FlexContainer>
     </CenterDiv>
   );
@@ -208,10 +201,7 @@ export const pageQuery = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        mainfixed: fixed(width: 258, height: 258) {
-          ...GatsbyImageSharpFixed
-        }
-        smallFixed: fixed(width: 70, height: 70) {
+        fixed(width: 258, height: 258) {
           ...GatsbyImageSharpFixed
         }
       }

@@ -1,7 +1,9 @@
 import React from 'react';
+import { NavContainer } from '../../components';
 
-const Programme = () => {
-  return <div>Programme</div>;
+const Programme = ({ ...props }) => {
+  const { location } = props;
+  return <NavContainer location={location}>Programme</NavContainer>;
 };
 
 export default Programme;
