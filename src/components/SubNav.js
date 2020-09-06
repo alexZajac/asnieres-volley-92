@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { ChevronRight } from 'react-feather';
-import { Span, P, SLink, SIcon } from '../elements';
+import { Span, P, SLink, SIcon, LogoBackground } from '../elements';
 import av92Logo from '../images/logo_nav.png';
 
 const SubNavContainer = styled.div`
@@ -14,17 +14,6 @@ const SubNavContainer = styled.div`
   box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.25);
   border-right: 4px solid ${props => props.theme.colors.secondary};
   background-color: ${props => props.theme.colors.light};
-`;
-
-const LogoBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-repeat: no-repeat;
-  background-position: 100% 0%;
 `;
 
 const StyledSubNav = styled.div`

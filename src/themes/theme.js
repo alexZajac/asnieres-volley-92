@@ -16,6 +16,7 @@ export const theme = {
   breakpoints: {
     mobile: 'only screen and (max-width: 50rem)',
     tablet: 'only screen and (max-width: 65rem)',
+    desktop: 'only screen and (max-width: 90rem)',
   },
   spacings: {
     xxSmall: '.25rem',

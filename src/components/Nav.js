@@ -52,7 +52,7 @@ const NavWrapper = styled.nav`
   position: fixed;
   background-color: ${props => props.theme.colors.primary};
   bottom: 0;
-  z-index: 3;
+  z-index: 1;
   overflow: hidden;
 
   &:hover {
@@ -97,7 +97,7 @@ const NavLogo = styled.li`
   margin-bottom: ${props => props.theme.spacings.small};
 `;
 
-const StyledImg = styled(props => <Img {...props} />)`
+const StyledImg = styled(Img)`
   margin: 0 1rem;
   min-width: 3rem;
 `;

@@ -90,7 +90,7 @@ export const P = styled.p`
   }};
 `;
 
-export const SLink = styled(props => <Link {...props} />)`
+export const SLink = styled(Link)`
   margin: ${props => (props.margin ? props.margin : 0)};
   font-size: ${props => {
     switch (props.size) {
@@ -199,8 +199,7 @@ export const SIcon = styled(({ icon: Icon, color, ...props }) => (
 ))``;
 
 export const H1 = styled.h1`
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 3rem;
   color: ${props => {
     switch (props.color) {
       case 'primary':
@@ -215,7 +214,20 @@ export const H1 = styled.h1`
         return props.theme.colors.primary;
     }
   }};
-  font-weight: 500;
+  font-family: ${props => {
+    switch (props.family) {
+      case 'main':
+        return props.theme.fonts.main;
+      case 'secondary':
+        return props.theme.fonts.secondary;
+      case 'body':
+        return props.theme.fonts.body;
+      case 'av92':
+        return props.theme.fonts.av92;
+      default:
+        return props.theme.fonts.main;
+    }
+  }};
   text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
   margin: ${props => (props.margin ? props.margin : 0)};
 `;

@@ -1,12 +1,12 @@
 import React from 'react';
-import { ContainerWrapper, ContainerChildren } from '../elements';
+import { Flex } from '../elements';
 import { Nav } from './Nav';
 
 export const NavContainer = ({ children, ...props }) => {
   return (
-    <ContainerWrapper>
+    <Flex justify="flex-start">
       <Nav {...props} />
-      <ContainerChildren>{children}</ContainerChildren>
-    </ContainerWrapper>
+      <Flex style={{ marginLeft: '5rem' }}>{children}</Flex>
+    </Flex>
   );
 };
