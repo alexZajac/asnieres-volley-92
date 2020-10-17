@@ -58,6 +58,22 @@ module.exports = {
         display: 'swap',
       },
     },
+    {
+      // The name of the plugin
+      resolve: 'gatsby-source-mongodb',
+      options: {
+        // Name of the database and collection where are books reside
+        dbName: 'AV92',
+        collection: ['matchups', 'teams'],
+        connectionString:
+          'mongodb+srv://av92_user:KgUE1VKv6Z7u2eKO@av92cluster.lzmdm.mongodb.net',
+        extraParams: {
+          ssl: true,
+          authSource: 'admin',
+          retryWrites: true,
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

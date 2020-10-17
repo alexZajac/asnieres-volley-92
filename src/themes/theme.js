@@ -12,6 +12,8 @@ export const theme = {
     secondary: '#BA2F33',
     primaryShade: '#2B3968',
     light: '#EFEFEF',
+    success: '#44C051',
+    error: '#ff0033',
   },
   breakpoints: {
     mobile: 'only screen and (max-width: 50rem)',
